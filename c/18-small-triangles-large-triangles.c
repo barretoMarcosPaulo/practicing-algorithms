@@ -2,7 +2,7 @@
 #include<math.h>
 
 typedef struct{
-    int a,b,c,s;
+    int a,b,c;
 }TRIANGLE;
 
 int calculate_p(TRIANGLE triangle){
@@ -18,6 +18,11 @@ int calculate_s(TRIANGLE triangle){
     return s;
 }
 
+void sorting(TRIANGLE *triangles, int size){
+    for(int i = 0; i < size; i++){
+        printf("%d\n",calculate_s(triangles[i]));
+    }
+}
 
 int main(){
     int size;
@@ -26,11 +31,7 @@ int main(){
 
     for(int i = 0; i < size; i++){
         scanf("%d %d %d",&triangles[i].a,&triangles[i].b,&triangles[i].c);
-        triangles[i].s = calculate_s(triangles[i]);
     }
 
-    for(int i = 0; i < size; i++){
-        printf("%d\n",triangles[i].s);
-    }
-
+    sorting(triangles,size);
 }
